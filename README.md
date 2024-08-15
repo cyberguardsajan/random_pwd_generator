@@ -1,10 +1,9 @@
-#About the project
+About the project
 It is a simple Python program designed to generate random passwords. As a beginner in coding, am learning to use Git and GitHub and I’m open to collaboration and feedback to improve my skills.
 
 
-
-##How to Use
-1. Clone the Repository**:
+How to Use
+1. Clone the Repository:
 git clone https://github.com/your-username/AlexPassGen.git
 
 2. Navigate to the Project Directory**:
