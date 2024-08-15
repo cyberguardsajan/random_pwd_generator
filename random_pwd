@@ -1,0 +1,72 @@
+import random
+import string
+
+
+
+print("""
+    
+   _____       _             _                         _  
+  / ____|     (_)           ( )                       | | 
+ | (___   __ _ _  __ _ _ __ |/ ___    _ ____      ____| | 
+  \___ \ / _` | |/ _` | '_ \  / __|  | '_ \ \ /\ / / _` | 
+  ____) | (_| | | (_| | | | | \__ \  | |_) \ V  V / (_| | 
+ |_____/ \__,_| |\__,_|_| |_| |___/  | .__/ \_/\_/ \__,_| 
+             _/ |                    | |                  
+            |__/                     |_|                  
+                                  _                       
+                                 | |                      
+   __ _  ___ _ __   ___ _ __ __ _| |_ ___  _ __           
+  / _` |/ _ \ '_ \ / _ \ '__/ _` | __/ _ \| '__|          
+ | (_| |  __/ | | |  __/ | | (_| | || (_) | |             
+  \__, |\___|_| |_|\___|_|  \__,_|\__\___/|_|             
+   __/ |                                                  ss
+  |___/                                                   
+
+    """ 
+)
+
+
+def get_character_set(include_lowercase, include_uppercase, include_digits, include_punctuation):
+
+    characters = ''
+    
+    # Add selected character sets to character
+    if include_lowercase:
+        characters += string.ascii_lowercase
+    if include_uppercase:
+        characters += string.ascii_uppercase
+    if include_digits:
+        characters += string.digits
+    if include_punctuation:
+        characters += string.punctuation
+
+    if not characters:
+        raise ValueError("No character types selected. Please choose at least one option.")
+
+    return characters
+
+def generate_password(length, character_set):
+    return ''.join(random.choices(character_set, k=length))
+
+# Display options and get user choices
+print("What do you want to include in your password?")
+print("1. Lowercase ASCII")
+print("2. Uppercase ASCII")
+print("3. Digits")
+print("4. Punctuation")
+
+include_lowercase = input("Include lowercase ASCII? (y/n): ").strip().lower() == 'y'
+include_uppercase = input("Include uppercase ASCII? (y/n): ").strip().lower() == 'y'
+include_digits = input("Include digits? (y/n): ").strip().lower() == 'y'
+include_punctuation = input("Include punctuation? (y/n): ").strip().lower() == 'y'
+
+# Get desired password length
+length = int(input("Enter the desired password length: "))
+
+# Get the character set based on user choices
+character_set = get_character_set(include_lowercase, include_uppercase, include_digits, include_punctuation)
+
+# Generate and display the password
+password = generate_password(length, character_set)
+print("Generated Password:", password)
+
